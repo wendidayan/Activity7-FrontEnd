@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.Users = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -41,13 +44,17 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.dataGridViewCourses = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnLoadCoursesPerProgram = new System.Windows.Forms.Button();
+            this.comboBoxPrograms = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,6 +81,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Sienna;
+            this.panel2.Controls.Add(this.button9);
+            this.panel2.Controls.Add(this.Users);
             this.panel2.Controls.Add(this.button8);
             this.panel2.Controls.Add(this.button7);
             this.panel2.Controls.Add(this.button6);
@@ -88,9 +97,29 @@
             this.panel2.Size = new System.Drawing.Size(200, 422);
             this.panel2.TabIndex = 4;
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(16, 318);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(164, 23);
+            this.button9.TabIndex = 10;
+            this.button9.Text = "Enrollments";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // Users
+            // 
+            this.Users.Location = new System.Drawing.Point(16, 62);
+            this.Users.Name = "Users";
+            this.Users.Size = new System.Drawing.Size(164, 23);
+            this.Users.TabIndex = 9;
+            this.Users.Text = "Users";
+            this.Users.UseVisualStyleBackColor = true;
+            this.Users.Click += new System.EventHandler(this.Users_Click);
+            // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(16, 336);
+            this.button8.Location = new System.Drawing.Point(16, 356);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(164, 23);
             this.button8.TabIndex = 7;
@@ -100,7 +129,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(16, 295);
+            this.button7.Location = new System.Drawing.Point(16, 283);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(164, 23);
             this.button7.TabIndex = 6;
@@ -110,7 +139,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(16, 257);
+            this.button6.Location = new System.Drawing.Point(16, 248);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(164, 23);
             this.button6.TabIndex = 5;
@@ -120,7 +149,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(16, 216);
+            this.button5.Location = new System.Drawing.Point(16, 211);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(164, 23);
             this.button5.TabIndex = 4;
@@ -130,7 +159,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(16, 170);
+            this.button4.Location = new System.Drawing.Point(16, 173);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(164, 23);
             this.button4.TabIndex = 3;
@@ -140,7 +169,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(16, 127);
+            this.button3.Location = new System.Drawing.Point(16, 137);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 23);
             this.button3.TabIndex = 2;
@@ -150,7 +179,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(16, 83);
+            this.button2.Location = new System.Drawing.Point(16, 100);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(164, 23);
             this.button2.TabIndex = 1;
@@ -160,7 +189,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 38);
+            this.button1.Location = new System.Drawing.Point(16, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 23);
             this.button1.TabIndex = 0;
@@ -186,25 +215,38 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Course/Course Details";
             // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.SaddleBrown;
-            this.button9.ForeColor = System.Drawing.SystemColors.Window;
-            this.button9.Location = new System.Drawing.Point(665, 66);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(127, 23);
-            this.button9.TabIndex = 7;
-            this.button9.Text = "Add New Course";
-            this.button9.UseVisualStyleBackColor = false;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.BurlyWood;
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.dataGridViewCourses);
+            this.panel4.Controls.Add(this.comboBoxPrograms);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(218, 95);
+            this.panel4.Location = new System.Drawing.Point(218, 81);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(570, 347);
+            this.panel4.Size = new System.Drawing.Size(570, 312);
             this.panel4.TabIndex = 8;
+            // 
+            // dataGridViewCourses
+            // 
+            this.dataGridViewCourses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewCourses.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourses.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewCourses.Location = new System.Drawing.Point(17, 38);
+            this.dataGridViewCourses.MultiSelect = false;
+            this.dataGridViewCourses.Name = "dataGridViewCourses";
+            this.dataGridViewCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCourses.Size = new System.Drawing.Size(535, 201);
+            this.dataGridViewCourses.TabIndex = 10;
+            this.dataGridViewCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProfessors_CellContentClick);
             // 
             // label3
             // 
@@ -217,13 +259,44 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "COURSE DETAILS";
             // 
+            // btnLoadCoursesPerProgram
+            // 
+            this.btnLoadCoursesPerProgram.BackColor = System.Drawing.Color.SaddleBrown;
+            this.btnLoadCoursesPerProgram.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnLoadCoursesPerProgram.Location = new System.Drawing.Point(419, 399);
+            this.btnLoadCoursesPerProgram.Name = "btnLoadCoursesPerProgram";
+            this.btnLoadCoursesPerProgram.Size = new System.Drawing.Size(181, 28);
+            this.btnLoadCoursesPerProgram.TabIndex = 18;
+            this.btnLoadCoursesPerProgram.Text = "Load Courses Per Program";
+            this.btnLoadCoursesPerProgram.UseVisualStyleBackColor = false;
+            this.btnLoadCoursesPerProgram.Click += new System.EventHandler(this.btnLoadCoursesPerProgram_Click);
+            // 
+            // comboBoxPrograms
+            // 
+            this.comboBoxPrograms.FormattingEnabled = true;
+            this.comboBoxPrograms.Location = new System.Drawing.Point(201, 274);
+            this.comboBoxPrograms.Name = "comboBoxPrograms";
+            this.comboBoxPrograms.Size = new System.Drawing.Size(181, 21);
+            this.comboBoxPrograms.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Snow;
+            this.label4.Location = new System.Drawing.Point(200, 249);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 17);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Program Filter:";
+            // 
             // Courses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLoadCoursesPerProgram);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.button9);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -239,6 +312,7 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -258,8 +332,13 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataGridViewCourses;
+        private System.Windows.Forms.Button Users;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnLoadCoursesPerProgram;
+        private System.Windows.Forms.ComboBox comboBoxPrograms;
+        private System.Windows.Forms.Label label4;
     }
 }

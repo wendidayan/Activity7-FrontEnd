@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace University_Information_System
 {
@@ -15,6 +16,102 @@ namespace University_Information_System
         public AdminDashboard()
         {
             InitializeComponent();
+            LoadEnrollmentData();
+            LoadCourseData();
+            dashCount();
+
+        }
+
+
+        private void LoadEnrollmentData()
+        {
+            string query = @"
+        SELECT 
+            e.student_id,
+            e.enrollment_date
+        FROM 
+            enrollments e";
+
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBHelper.connStr))
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    adapter.Fill(dt);
+                }
+
+                dataGridViewEnrollments.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load enrollment data: " + ex.Message);
+            }
+        }
+
+        private void LoadCourseData()
+        {
+            string query = "SELECT course_id, course_name FROM courses";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(DBHelper.connStr))
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    adapter.Fill(dt);
+                }
+
+                dataGridViewCourses.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load course data: " + ex.Message);
+            }
+        }
+
+        private void dashCount()
+        {
+            string studentQuery = "SELECT COUNT(*) FROM students";
+            string professorQuery = "SELECT COUNT(*) FROM professors";
+            string programQuery = "SELECT COUNT(*) FROM programs";
+            string departmentQuery = "SELECT COUNT(*) FROM departments";
+
+            try
+            {
+                if (DBHelper.conn.State == ConnectionState.Open)
+                    DBHelper.conn.Close();
+
+                DBHelper.conn.Open();
+
+                using (var studentCmd = new MySqlCommand(studentQuery, DBHelper.conn))
+                    labelTotalStudents.Text = studentCmd.ExecuteScalar().ToString();
+
+                using (var professorCmd = new MySqlCommand(professorQuery, DBHelper.conn))
+                    labelTotalProfessors.Text = professorCmd.ExecuteScalar().ToString();
+
+                using (var programCmd = new MySqlCommand(programQuery, DBHelper.conn))
+                    labelTotalPrograms.Text = programCmd.ExecuteScalar().ToString();
+
+                using (var deptCmd = new MySqlCommand(departmentQuery, DBHelper.conn))
+                    labelTotalDepartments.Text = deptCmd.ExecuteScalar().ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load dashboard count: " + ex.Message);
+            }
+            finally
+            {
+                if (DBHelper.conn.State == ConnectionState.Open)
+                    DBHelper.conn.Close();
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -94,6 +191,41 @@ namespace University_Information_System
             Programs progForm = new Programs();
             progForm.Show(); // This shows the form without closing the current one
             this.Hide(); // Hides the login form
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Users_Click(object sender, EventArgs e)
+        {
+            UserList userlistForm = new UserList();
+            userlistForm.Show(); // This shows the form without closing the current one
+            this.Hide(); // Hides the login form
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Enrollments enrollForm = new Enrollments();
+            enrollForm.Show(); // This shows the form without closing the current one
+            this.Hide(); // Hides the login form
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewEnrollments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewCourses_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

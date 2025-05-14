@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.Users = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -43,21 +46,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelTotalStudents = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelTotalProfessors = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelTotalPrograms = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelTotalDepartments = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridViewEnrollments = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridViewCourses = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,7 +70,9 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEnrollments)).BeginInit();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -95,6 +100,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Sienna;
+            this.panel2.Controls.Add(this.button9);
+            this.panel2.Controls.Add(this.Users);
             this.panel2.Controls.Add(this.button8);
             this.panel2.Controls.Add(this.button7);
             this.panel2.Controls.Add(this.button6);
@@ -109,9 +116,29 @@
             this.panel2.Size = new System.Drawing.Size(200, 422);
             this.panel2.TabIndex = 1;
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(18, 335);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(164, 23);
+            this.button9.TabIndex = 9;
+            this.button9.Text = "Enrollments";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // Users
+            // 
+            this.Users.Location = new System.Drawing.Point(16, 60);
+            this.Users.Name = "Users";
+            this.Users.Size = new System.Drawing.Size(164, 23);
+            this.Users.TabIndex = 8;
+            this.Users.Text = "Users";
+            this.Users.UseVisualStyleBackColor = true;
+            this.Users.Click += new System.EventHandler(this.Users_Click);
+            // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(16, 336);
+            this.button8.Location = new System.Drawing.Point(16, 370);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(164, 23);
             this.button8.TabIndex = 7;
@@ -121,7 +148,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(16, 295);
+            this.button7.Location = new System.Drawing.Point(16, 298);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(164, 23);
             this.button7.TabIndex = 6;
@@ -141,7 +168,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(16, 216);
+            this.button5.Location = new System.Drawing.Point(16, 214);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(164, 23);
             this.button5.TabIndex = 4;
@@ -151,7 +178,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(16, 170);
+            this.button4.Location = new System.Drawing.Point(16, 175);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(164, 23);
             this.button4.TabIndex = 3;
@@ -161,7 +188,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(16, 127);
+            this.button3.Location = new System.Drawing.Point(16, 137);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 23);
             this.button3.TabIndex = 2;
@@ -171,7 +198,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(16, 83);
+            this.button2.Location = new System.Drawing.Point(16, 99);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(164, 23);
             this.button2.TabIndex = 1;
@@ -181,7 +208,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 38);
+            this.button1.Location = new System.Drawing.Point(16, 21);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 23);
             this.button1.TabIndex = 0;
@@ -211,8 +238,8 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.MistyRose;
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(224, 78);
+            this.panel4.Controls.Add(this.labelTotalStudents);
+            this.panel4.Location = new System.Drawing.Point(216, 78);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(112, 74);
             this.panel4.TabIndex = 3;
@@ -227,23 +254,23 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Total Students";
             // 
-            // label3
+            // labelTotalStudents
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label3.Location = new System.Drawing.Point(36, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 21);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "100";
+            this.labelTotalStudents.AutoSize = true;
+            this.labelTotalStudents.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalStudents.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTotalStudents.Location = new System.Drawing.Point(36, 15);
+            this.labelTotalStudents.Name = "labelTotalStudents";
+            this.labelTotalStudents.Size = new System.Drawing.Size(0, 21);
+            this.labelTotalStudents.TabIndex = 0;
+            this.labelTotalStudents.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.SandyBrown;
             this.panel5.Controls.Add(this.label8);
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(359, 78);
+            this.panel5.Controls.Add(this.labelTotalProfessors);
+            this.panel5.Location = new System.Drawing.Point(358, 78);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(124, 74);
             this.panel5.TabIndex = 4;
@@ -258,23 +285,22 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Total Professors";
             // 
-            // label4
+            // labelTotalProfessors
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label4.Location = new System.Drawing.Point(50, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 21);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "18";
+            this.labelTotalProfessors.AutoSize = true;
+            this.labelTotalProfessors.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalProfessors.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTotalProfessors.Location = new System.Drawing.Point(50, 15);
+            this.labelTotalProfessors.Name = "labelTotalProfessors";
+            this.labelTotalProfessors.Size = new System.Drawing.Size(0, 21);
+            this.labelTotalProfessors.TabIndex = 0;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.LightSalmon;
             this.panel6.Controls.Add(this.label9);
-            this.panel6.Controls.Add(this.label5);
-            this.panel6.Location = new System.Drawing.Point(507, 78);
+            this.panel6.Controls.Add(this.labelTotalPrograms);
+            this.panel6.Location = new System.Drawing.Point(515, 78);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(121, 74);
             this.panel6.TabIndex = 5;
@@ -290,23 +316,22 @@
             this.label9.Text = "Total Programs";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // label5
+            // labelTotalPrograms
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label5.Location = new System.Drawing.Point(48, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(28, 21);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "45";
+            this.labelTotalPrograms.AutoSize = true;
+            this.labelTotalPrograms.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalPrograms.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTotalPrograms.Location = new System.Drawing.Point(48, 15);
+            this.labelTotalPrograms.Name = "labelTotalPrograms";
+            this.labelTotalPrograms.Size = new System.Drawing.Size(0, 21);
+            this.labelTotalPrograms.TabIndex = 0;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.RosyBrown;
             this.panel7.Controls.Add(this.label10);
-            this.panel7.Controls.Add(this.label6);
-            this.panel7.Location = new System.Drawing.Point(651, 78);
+            this.panel7.Controls.Add(this.labelTotalDepartments);
+            this.panel7.Location = new System.Drawing.Point(663, 78);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(123, 74);
             this.panel7.TabIndex = 6;
@@ -322,48 +347,36 @@
             this.label10.Text = "Total Departments";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // label6
+            // labelTotalDepartments
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label6.Location = new System.Drawing.Point(50, 15);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 21);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "20";
+            this.labelTotalDepartments.AutoSize = true;
+            this.labelTotalDepartments.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalDepartments.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTotalDepartments.Location = new System.Drawing.Point(50, 15);
+            this.labelTotalDepartments.Name = "labelTotalDepartments";
+            this.labelTotalDepartments.Size = new System.Drawing.Size(0, 21);
+            this.labelTotalDepartments.TabIndex = 0;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Bisque;
-            this.panel8.Controls.Add(this.tableLayoutPanel1);
+            this.panel8.Controls.Add(this.dataGridViewEnrollments);
             this.panel8.Controls.Add(this.label11);
-            this.panel8.Location = new System.Drawing.Point(224, 174);
+            this.panel8.Location = new System.Drawing.Point(215, 174);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(305, 264);
+            this.panel8.Size = new System.Drawing.Size(314, 264);
             this.panel8.TabIndex = 7;
             // 
-            // tableLayoutPanel1
+            // dataGridViewEnrollments
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.63158F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.36842F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(21, 57);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 9;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(259, 182);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.dataGridViewEnrollments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEnrollments.Location = new System.Drawing.Point(21, 38);
+            this.dataGridViewEnrollments.MultiSelect = false;
+            this.dataGridViewEnrollments.Name = "dataGridViewEnrollments";
+            this.dataGridViewEnrollments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewEnrollments.Size = new System.Drawing.Size(261, 209);
+            this.dataGridViewEnrollments.TabIndex = 11;
+            this.dataGridViewEnrollments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEnrollments_CellContentClick);
             // 
             // label11
             // 
@@ -371,39 +384,41 @@
             this.label11.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(17, 13);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(183, 22);
+            this.label11.Size = new System.Drawing.Size(153, 22);
             this.label11.TabIndex = 0;
-            this.label11.Text = "CLASS SCHEDULE";
+            this.label11.Text = "ENROLLMENTS";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel9.Controls.Add(this.tableLayoutPanel2);
+            this.panel9.Controls.Add(this.dataGridViewCourses);
             this.panel9.Controls.Add(this.label12);
-            this.panel9.Location = new System.Drawing.Point(559, 174);
+            this.panel9.Location = new System.Drawing.Point(536, 174);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(215, 264);
+            this.panel9.Size = new System.Drawing.Size(252, 264);
             this.panel9.TabIndex = 8;
             // 
-            // tableLayoutPanel2
+            // dataGridViewCourses
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(16, 57);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 9;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(178, 182);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.dataGridViewCourses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewCourses.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourses.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewCourses.Location = new System.Drawing.Point(16, 38);
+            this.dataGridViewCourses.MultiSelect = false;
+            this.dataGridViewCourses.Name = "dataGridViewCourses";
+            this.dataGridViewCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCourses.Size = new System.Drawing.Size(222, 209);
+            this.dataGridViewCourses.TabIndex = 12;
+            this.dataGridViewCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCourses_CellContentClick);
             // 
             // label12
             // 
@@ -450,8 +465,10 @@
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEnrollments)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -477,17 +494,19 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelTotalStudents;
+        private System.Windows.Forms.Label labelTotalProfessors;
+        private System.Windows.Forms.Label labelTotalPrograms;
+        private System.Windows.Forms.Label labelTotalDepartments;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button Users;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.DataGridView dataGridViewEnrollments;
+        private System.Windows.Forms.DataGridView dataGridViewCourses;
     }
 }

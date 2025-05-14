@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace University_Information_System
 {
@@ -15,6 +16,30 @@ namespace University_Information_System
         public Departments()
         {
             InitializeComponent();
+            LoadDepartmentData();
+        }
+
+        private void LoadDepartmentData()
+        {
+            string query = "SELECT department_id, department_name FROM departments";
+            DataTable dt = new DataTable();
+
+            try
+            {
+                DBHelper.conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, DBHelper.conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(dt);
+                dataGridViewDepartments.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load department data: " + ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -70,6 +95,25 @@ namespace University_Information_System
         {
             UserLogin userForm = new UserLogin();
             userForm.Show(); // This shows the form without closing the current one
+            this.Hide(); // Hides the login form
+        }
+
+        private void Users_Click(object sender, EventArgs e)
+        {
+            UserList userlistForm = new UserList();
+            userlistForm.Show(); // This shows the form without closing the current one
+            this.Hide(); // Hides the login form
+        }
+
+        private void dataGridViewDepartments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Enrollments enrollForm = new Enrollments();
+            enrollForm.Show(); // This shows the form without closing the current one
             this.Hide(); // Hides the login form
         }
     }

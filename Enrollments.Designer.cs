@@ -1,6 +1,6 @@
 ﻿namespace University_Information_System
 {
-    partial class Departments
+    partial class Enrollments
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -45,14 +44,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridViewDepartments = new System.Windows.Forms.DataGridView();
+            this.dataGridViewEnrollments = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnShowProgramStat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDepartments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEnrollments)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -63,7 +61,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 28);
-            this.panel1.TabIndex = 4;
+            this.panel1.TabIndex = 5;
             // 
             // label1
             // 
@@ -72,9 +70,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
             this.label1.Location = new System.Drawing.Point(12, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 21);
+            this.label1.Size = new System.Drawing.Size(137, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Department Details";
+            this.label1.Text = "Enrollment Details";
             // 
             // panel2
             // 
@@ -93,7 +91,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 28);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 422);
-            this.panel2.TabIndex = 5;
+            this.panel2.TabIndex = 6;
             // 
             // button10
             // 
@@ -202,47 +200,37 @@
             this.panel3.Location = new System.Drawing.Point(200, 28);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(600, 26);
-            this.panel3.TabIndex = 6;
+            this.panel3.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(434, 6);
+            this.label2.Location = new System.Drawing.Point(441, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 13);
+            this.label2.Size = new System.Drawing.Size(145, 13);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Department/Department Details";
+            this.label2.Text = "Enrollment/Enrollment Details";
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.BurlyWood;
-            this.panel4.Controls.Add(this.dataGridViewDepartments);
+            this.panel4.Controls.Add(this.dataGridViewEnrollments);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(218, 82);
+            this.panel4.Location = new System.Drawing.Point(216, 79);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(570, 304);
+            this.panel4.Size = new System.Drawing.Size(570, 334);
             this.panel4.TabIndex = 9;
             // 
-            // dataGridViewDepartments
+            // dataGridViewEnrollments
             // 
-            this.dataGridViewDepartments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewDepartments.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewDepartments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewDepartments.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewDepartments.Location = new System.Drawing.Point(17, 49);
-            this.dataGridViewDepartments.MultiSelect = false;
-            this.dataGridViewDepartments.Name = "dataGridViewDepartments";
-            this.dataGridViewDepartments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDepartments.Size = new System.Drawing.Size(537, 181);
-            this.dataGridViewDepartments.TabIndex = 11;
-            this.dataGridViewDepartments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDepartments_CellContentClick);
+            this.dataGridViewEnrollments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEnrollments.Location = new System.Drawing.Point(17, 38);
+            this.dataGridViewEnrollments.MultiSelect = false;
+            this.dataGridViewEnrollments.Name = "dataGridViewEnrollments";
+            this.dataGridViewEnrollments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewEnrollments.Size = new System.Drawing.Size(530, 279);
+            this.dataGridViewEnrollments.TabIndex = 10;
+            this.dataGridViewEnrollments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEnrollments_CellContentClick);
             // 
             // label3
             // 
@@ -251,36 +239,24 @@
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
             this.label3.Location = new System.Drawing.Point(13, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(193, 19);
+            this.label3.Size = new System.Drawing.Size(194, 19);
             this.label3.TabIndex = 0;
-            this.label3.Text = "DEPARTMENT DETAILS";
+            this.label3.Text = "ENROLLMENT DETAILS";
             // 
-            // btnShowProgramStat
-            // 
-            this.btnShowProgramStat.BackColor = System.Drawing.Color.SaddleBrown;
-            this.btnShowProgramStat.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnShowProgramStat.Location = new System.Drawing.Point(413, 402);
-            this.btnShowProgramStat.Name = "btnShowProgramStat";
-            this.btnShowProgramStat.Size = new System.Drawing.Size(210, 25);
-            this.btnShowProgramStat.TabIndex = 20;
-            this.btnShowProgramStat.Text = "Load Departments Per Program";
-            this.btnShowProgramStat.UseVisualStyleBackColor = false;
-            // 
-            // Departments
+            // Enrollments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnShowProgramStat);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Departments";
+            this.Name = "Enrollments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Departments";
+            this.Text = "Enrollments";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -288,7 +264,7 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDepartments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEnrollments)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -298,6 +274,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button Users;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
@@ -309,10 +287,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView dataGridViewEnrollments;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button Users;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.DataGridView dataGridViewDepartments;
-        private System.Windows.Forms.Button btnShowProgramStat;
     }
 }

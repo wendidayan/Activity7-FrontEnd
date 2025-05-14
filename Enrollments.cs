@@ -11,25 +11,29 @@ using MySql.Data.MySqlClient;
 
 namespace University_Information_System
 {
-    public partial class Programs : Form
+    public partial class Enrollments : Form
     {
-        public Programs()
+        public Enrollments()
         {
             InitializeComponent();
-            LoadProgramData();
+            LoadEnrollmentData();
         }
 
-        private void LoadProgramData()
+        private void LoadEnrollmentData()
         {
             string query = @"
         SELECT 
-            p.program_id, 
-            p.program_name, 
-            d.department_name
+            e.enrollment_id,
+            s.fname,
+            s.lname,
+            p.program_name,
+            e.enrollment_date
         FROM 
-            programs p
+            enrollments e
         INNER JOIN 
-            departments d ON p.department_id = d.department_id";
+            students s ON e.student_id = s.student_id
+        INNER JOIN 
+            programs p ON e.program_id = p.program_id";
 
             DataTable dt = new DataTable();
 
@@ -39,11 +43,11 @@ namespace University_Information_System
                 MySqlCommand cmd = new MySqlCommand(query, DBHelper.conn);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 adapter.Fill(dt);
-                dataGridViewPrograms.DataSource = dt;
+                dataGridViewEnrollments.DataSource = dt; // Make sure you have this DataGridView on your form
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to load program data: " + ex.Message);
+                MessageBox.Show("Failed to load enrollment data: " + ex.Message);
             }
             finally
             {
@@ -51,10 +55,18 @@ namespace University_Information_System
             }
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             AdminDashboard adminForm = new AdminDashboard();
             adminForm.Show(); // This shows the form without closing the current one
+            this.Hide(); // Hides the login form
+        }
+
+        private void Users_Click(object sender, EventArgs e)
+        {
+            UserList userlistForm = new UserList();
+            userlistForm.Show(); // This shows the form without closing the current one
             this.Hide(); // Hides the login form
         }
 
@@ -100,25 +112,6 @@ namespace University_Information_System
             this.Hide(); // Hides the login form
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            UserLogin userForm = new UserLogin();
-            userForm.Show(); // This shows the form without closing the current one
-            this.Hide(); // Hides the login form
-        }
-
-        private void Users_Click(object sender, EventArgs e)
-        {
-            UserList userlistForm = new UserList();
-            userlistForm.Show(); // This shows the form without closing the current one
-            this.Hide(); // Hides the login form
-        }
-
-        private void dataGridViewPrograms_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void button10_Click(object sender, EventArgs e)
         {
             Enrollments enrollForm = new Enrollments();
@@ -126,33 +119,16 @@ namespace University_Information_System
             this.Hide(); // Hides the login form
         }
 
-        private void btnShowProgramStat_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
+            UserLogin userForm = new UserLogin();
+            userForm.Show(); // This shows the form without closing the current one
+            this.Hide(); // Hides the login form
+        }
 
-            try
-            {
-                DBHelper.conn.Open();
+        private void dataGridViewEnrollments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-                // Call the stored procedure
-                MySqlCommand cmd = new MySqlCommand("ModifiedGetStudentCountByProgramWithoutCursor", DBHelper.conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                // Fill DataTable
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                adapter.Fill(dt);
-
-                // Bind to the DataGridView
-                dataGridViewPrograms.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error fetching student counts: " + ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
         }
     }
 }
