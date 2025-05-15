@@ -47,7 +47,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewDepartments = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnShowProgramStat = new System.Windows.Forms.Button();
+            this.btnDeptByProg = new System.Windows.Forms.Button();
+            this.comboBoxProgram = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -216,11 +218,13 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.BurlyWood;
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.comboBoxProgram);
             this.panel4.Controls.Add(this.dataGridViewDepartments);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Location = new System.Drawing.Point(218, 82);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(570, 304);
+            this.panel4.Size = new System.Drawing.Size(570, 306);
             this.panel4.TabIndex = 9;
             // 
             // dataGridViewDepartments
@@ -255,23 +259,43 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "DEPARTMENT DETAILS";
             // 
-            // btnShowProgramStat
+            // btnDeptByProg
             // 
-            this.btnShowProgramStat.BackColor = System.Drawing.Color.SaddleBrown;
-            this.btnShowProgramStat.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnShowProgramStat.Location = new System.Drawing.Point(413, 402);
-            this.btnShowProgramStat.Name = "btnShowProgramStat";
-            this.btnShowProgramStat.Size = new System.Drawing.Size(210, 25);
-            this.btnShowProgramStat.TabIndex = 20;
-            this.btnShowProgramStat.Text = "Load Departments Per Program";
-            this.btnShowProgramStat.UseVisualStyleBackColor = false;
+            this.btnDeptByProg.BackColor = System.Drawing.Color.SaddleBrown;
+            this.btnDeptByProg.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnDeptByProg.Location = new System.Drawing.Point(413, 402);
+            this.btnDeptByProg.Name = "btnDeptByProg";
+            this.btnDeptByProg.Size = new System.Drawing.Size(210, 25);
+            this.btnDeptByProg.TabIndex = 20;
+            this.btnDeptByProg.Text = "Load Departments Per Program";
+            this.btnDeptByProg.UseVisualStyleBackColor = false;
+            this.btnDeptByProg.Click += new System.EventHandler(this.btnShowProgramStat_Click);
+            // 
+            // comboBoxProgram
+            // 
+            this.comboBoxProgram.FormattingEnabled = true;
+            this.comboBoxProgram.Location = new System.Drawing.Point(195, 270);
+            this.comboBoxProgram.Name = "comboBoxProgram";
+            this.comboBoxProgram.Size = new System.Drawing.Size(210, 21);
+            this.comboBoxProgram.TabIndex = 16;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Snow;
+            this.label4.Location = new System.Drawing.Point(192, 243);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 17);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Program Filter:";
             // 
             // Departments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnShowProgramStat);
+            this.Controls.Add(this.btnDeptByProg);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -313,6 +337,8 @@
         private System.Windows.Forms.Button Users;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.DataGridView dataGridViewDepartments;
-        private System.Windows.Forms.Button btnShowProgramStat;
+        private System.Windows.Forms.Button btnDeptByProg;
+        private System.Windows.Forms.ComboBox comboBoxProgram;
+        private System.Windows.Forms.Label label4;
     }
 }

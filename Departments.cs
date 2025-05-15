@@ -17,6 +17,7 @@ namespace University_Information_System
         {
             InitializeComponent();
             LoadDepartmentData();
+            LoadProgramsIntoComboBox();
         }
 
         private void LoadDepartmentData()
@@ -41,6 +42,34 @@ namespace University_Information_System
                 DBHelper.conn.Close();
             }
         }
+
+        private void LoadProgramsIntoComboBox()
+        {
+            string query = "SELECT program_id, program_name FROM programs";
+            try
+            {
+                DBHelper.conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, DBHelper.conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+
+
+                comboBoxProgram.DataSource = dt;
+                comboBoxProgram.DisplayMember = "program_name";
+                comboBoxProgram.ValueMember = "program_id";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load programs: " + ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -115,6 +144,41 @@ namespace University_Information_System
             Enrollments enrollForm = new Enrollments();
             enrollForm.Show(); // This shows the form without closing the current one
             this.Hide(); // Hides the login form
+        }
+
+        private void btnShowProgramStat_Click(object sender, EventArgs e)
+        {
+            if (comboBoxProgram.SelectedValue == DBNull.Value || comboBoxProgram.SelectedValue == null)
+            {
+                MessageBox.Show("Please select a specific program. The function doesn't support 'All'.");
+                return;
+            }
+
+            int selectedProgramId = Convert.ToInt32(comboBoxProgram.SelectedValue);
+
+            try
+            {
+                DBHelper.conn.Open();
+
+                string query = "SELECT GetDepartmentByProgramForStoredProcedure(@program_id) AS department_name";
+                MySqlCommand cmd = new MySqlCommand(query, DBHelper.conn);
+                cmd.Parameters.AddWithValue("@program_id", selectedProgramId);
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dataGridViewDepartments.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fetching department: " + ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+
         }
     }
 }

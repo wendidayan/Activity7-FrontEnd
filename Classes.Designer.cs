@@ -31,6 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
+            this.Users = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -42,10 +44,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Users = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.dataGridViewClasses = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnLoadCoursesPerProgram = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -92,6 +93,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 422);
             this.panel2.TabIndex = 7;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(15, 314);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(164, 23);
+            this.button10.TabIndex = 12;
+            this.button10.Text = "Enrollments";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // Users
+            // 
+            this.Users.Location = new System.Drawing.Point(16, 61);
+            this.Users.Name = "Users";
+            this.Users.Size = new System.Drawing.Size(164, 23);
+            this.Users.TabIndex = 11;
+            this.Users.Text = "Users";
+            this.Users.UseVisualStyleBackColor = true;
+            this.Users.Click += new System.EventHandler(this.Users_Click);
             // 
             // button8
             // 
@@ -198,8 +219,19 @@
             this.panel4.Controls.Add(this.label3);
             this.panel4.Location = new System.Drawing.Point(206, 80);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(582, 347);
+            this.panel4.Size = new System.Drawing.Size(582, 313);
             this.panel4.TabIndex = 11;
+            // 
+            // dataGridViewClasses
+            // 
+            this.dataGridViewClasses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewClasses.Location = new System.Drawing.Point(17, 38);
+            this.dataGridViewClasses.MultiSelect = false;
+            this.dataGridViewClasses.Name = "dataGridViewClasses";
+            this.dataGridViewClasses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewClasses.Size = new System.Drawing.Size(419, 186);
+            this.dataGridViewClasses.TabIndex = 12;
+            this.dataGridViewClasses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClasses_CellContentClick);
             // 
             // label3
             // 
@@ -212,42 +244,23 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "CLASS SCHEDULE";
             // 
-            // Users
+            // btnLoadCoursesPerProgram
             // 
-            this.Users.Location = new System.Drawing.Point(16, 61);
-            this.Users.Name = "Users";
-            this.Users.Size = new System.Drawing.Size(164, 23);
-            this.Users.TabIndex = 11;
-            this.Users.Text = "Users";
-            this.Users.UseVisualStyleBackColor = true;
-            this.Users.Click += new System.EventHandler(this.Users_Click);
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(15, 314);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(164, 23);
-            this.button10.TabIndex = 12;
-            this.button10.Text = "Enrollments";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // dataGridViewClasses
-            // 
-            this.dataGridViewClasses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClasses.Location = new System.Drawing.Point(17, 38);
-            this.dataGridViewClasses.MultiSelect = false;
-            this.dataGridViewClasses.Name = "dataGridViewClasses";
-            this.dataGridViewClasses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewClasses.Size = new System.Drawing.Size(549, 279);
-            this.dataGridViewClasses.TabIndex = 12;
-            this.dataGridViewClasses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClasses_CellContentClick);
+            this.btnLoadCoursesPerProgram.BackColor = System.Drawing.Color.SaddleBrown;
+            this.btnLoadCoursesPerProgram.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnLoadCoursesPerProgram.Location = new System.Drawing.Point(420, 410);
+            this.btnLoadCoursesPerProgram.Name = "btnLoadCoursesPerProgram";
+            this.btnLoadCoursesPerProgram.Size = new System.Drawing.Size(181, 28);
+            this.btnLoadCoursesPerProgram.TabIndex = 19;
+            this.btnLoadCoursesPerProgram.Text = "Load Courses Per Program";
+            this.btnLoadCoursesPerProgram.UseVisualStyleBackColor = false;
             // 
             // Classes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLoadCoursesPerProgram);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -289,5 +302,6 @@
         private System.Windows.Forms.Button Users;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.DataGridView dataGridViewClasses;
+        private System.Windows.Forms.Button btnLoadCoursesPerProgram;
     }
 }
