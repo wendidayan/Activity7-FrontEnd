@@ -347,6 +347,11 @@ namespace University_Information_System
             enrollForm.Show(); // This shows the form without closing the current one
             this.Hide(); // Hides the login form
         }
+
+        private void dateTimeGraduation_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

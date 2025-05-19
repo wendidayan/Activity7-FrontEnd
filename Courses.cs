@@ -13,6 +13,8 @@ namespace University_Information_System
 {
     public partial class Courses : Form
     {
+        private bool showingFilteredCourses = false;
+
         public Courses()
         {
             InitializeComponent();
@@ -132,8 +134,21 @@ namespace University_Information_System
 
         private void btnLoadCoursesPerProgram_Click(object sender, EventArgs e)
         {
-            int programId = Convert.ToInt32(comboBoxPrograms.SelectedValue);  // Get selected program's ID
-            LoadCoursesPerProgramFromProcedure(programId);
+            if (!showingFilteredCourses)
+            {
+                int programId = Convert.ToInt32(comboBoxPrograms.SelectedValue);  // Get selected program's ID
+                LoadCoursesPerProgramFromProcedure(programId);
+
+                btnLoadCoursesPerProgram.Text = "Show Course Details";
+                showingFilteredCourses = true;
+            }
+            else
+            {
+                LoadCourseData();
+
+                btnLoadCoursesPerProgram.Text = "Load Courses Per Program";
+                showingFilteredCourses = false;
+            }
         }
 
         private void LoadCoursesPerProgramFromProcedure(int programFilter)

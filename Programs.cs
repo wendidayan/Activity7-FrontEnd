@@ -13,6 +13,8 @@ namespace University_Information_System
 {
     public partial class Programs : Form
     {
+        private bool showingPrograms= false;
+
         public Programs()
         {
             InitializeComponent();
@@ -128,31 +130,40 @@ namespace University_Information_System
 
         private void btnShowProgramStat_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-
-            try
+            if (!showingPrograms)
             {
-                DBHelper.conn.Open();
+                DataTable dt = new DataTable();
 
-                // Call the stored procedure
-                MySqlCommand cmd = new MySqlCommand("ModifiedGetStudentCountByProgramWithoutCursor", DBHelper.conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    DBHelper.conn.Open();
 
-                // Fill DataTable
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                adapter.Fill(dt);
+                    MySqlCommand cmd = new MySqlCommand("ModifiedGetStudentCountByProgramWithoutCursor", DBHelper.conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                // Bind to the DataGridView
-                dataGridViewPrograms.DataSource = dt;
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    adapter.Fill(dt);
+
+                    dataGridViewPrograms.DataSource = dt;
+                    btnShowProgramStat.Text = "Show Program Details";
+                    showingPrograms = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error fetching student counts: " + ex.Message);
+                }
+                finally
+                {
+                    DBHelper.conn.Close();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error fetching student counts: " + ex.Message);
+                LoadProgramData();
+                btnShowProgramStat.Text = "Load Total Enrolled Students Per Program";
+                showingPrograms = false;
             }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
+
         }
     }
 }

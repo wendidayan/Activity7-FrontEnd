@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -68,11 +68,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(12, 4);
+            this.label1.Location = new System.Drawing.Point(4, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 21);
+            this.label1.Size = new System.Drawing.Size(122, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Program Details";
             // 
@@ -97,106 +97,117 @@
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.Color.BurlyWood;
             this.button10.Location = new System.Drawing.Point(18, 317);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(164, 23);
             this.button10.TabIndex = 11;
             this.button10.Text = "Enrollments";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // Users
             // 
+            this.Users.BackColor = System.Drawing.Color.BurlyWood;
             this.Users.Location = new System.Drawing.Point(18, 67);
             this.Users.Name = "Users";
             this.Users.Size = new System.Drawing.Size(164, 23);
             this.Users.TabIndex = 10;
             this.Users.Text = "Users";
-            this.Users.UseVisualStyleBackColor = true;
+            this.Users.UseVisualStyleBackColor = false;
             this.Users.Click += new System.EventHandler(this.Users_Click);
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.Color.BurlyWood;
             this.button8.Location = new System.Drawing.Point(16, 353);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(164, 23);
             this.button8.TabIndex = 7;
             this.button8.Text = "Log Out";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
+            this.button7.BackColor = System.Drawing.Color.BurlyWood;
             this.button7.Location = new System.Drawing.Point(16, 282);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(164, 23);
             this.button7.TabIndex = 6;
             this.button7.Text = "Classes";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.BurlyWood;
             this.button6.Location = new System.Drawing.Point(16, 248);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(164, 23);
             this.button6.TabIndex = 5;
             this.button6.Text = "Programs";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.BurlyWood;
             this.button5.Location = new System.Drawing.Point(16, 212);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(164, 23);
             this.button5.TabIndex = 4;
             this.button5.Text = "Departments";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.BurlyWood;
             this.button4.Location = new System.Drawing.Point(16, 173);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(164, 23);
             this.button4.TabIndex = 3;
             this.button4.Text = "Courses";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.BurlyWood;
             this.button3.Location = new System.Drawing.Point(16, 137);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 23);
             this.button3.TabIndex = 2;
             this.button3.Text = "Professors";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.BurlyWood;
             this.button2.Location = new System.Drawing.Point(16, 103);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(164, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "Students";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.BurlyWood;
             this.button1.Location = new System.Drawing.Point(16, 31);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "Dashboard";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.BurlyWood;
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(200, 28);
@@ -207,7 +218,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(466, 6);
+            this.label2.BackColor = System.Drawing.Color.BurlyWood;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(471, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 13);
             this.label2.TabIndex = 0;
@@ -228,14 +241,14 @@
             this.dataGridViewPrograms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewPrograms.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewPrograms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPrograms.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPrograms.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewPrograms.Location = new System.Drawing.Point(17, 43);
             this.dataGridViewPrograms.MultiSelect = false;
             this.dataGridViewPrograms.Name = "dataGridViewPrograms";
@@ -247,11 +260,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
             this.label3.Location = new System.Drawing.Point(13, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 19);
+            this.label3.Size = new System.Drawing.Size(185, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "PROGRAM DETAILS";
             // 
@@ -259,9 +272,9 @@
             // 
             this.btnShowProgramStat.BackColor = System.Drawing.Color.SaddleBrown;
             this.btnShowProgramStat.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnShowProgramStat.Location = new System.Drawing.Point(410, 381);
+            this.btnShowProgramStat.Location = new System.Drawing.Point(395, 386);
             this.btnShowProgramStat.Name = "btnShowProgramStat";
-            this.btnShowProgramStat.Size = new System.Drawing.Size(210, 38);
+            this.btnShowProgramStat.Size = new System.Drawing.Size(237, 30);
             this.btnShowProgramStat.TabIndex = 19;
             this.btnShowProgramStat.Text = "Load Total Enrolled Students Per Program";
             this.btnShowProgramStat.UseVisualStyleBackColor = false;

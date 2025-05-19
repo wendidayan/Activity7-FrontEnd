@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -45,11 +45,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.dataGridViewCourses = new System.Windows.Forms.DataGridView();
+            this.comboBoxPrograms = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnLoadCoursesPerProgram = new System.Windows.Forms.Button();
-            this.comboBoxPrograms = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -70,11 +70,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(12, 4);
+            this.label1.Location = new System.Drawing.Point(5, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 21);
+            this.label1.Size = new System.Drawing.Size(113, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Course Details";
             // 
@@ -99,106 +99,117 @@
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.Color.BurlyWood;
             this.button9.Location = new System.Drawing.Point(16, 318);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(164, 23);
             this.button9.TabIndex = 10;
             this.button9.Text = "Enrollments";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // Users
             // 
+            this.Users.BackColor = System.Drawing.Color.BurlyWood;
             this.Users.Location = new System.Drawing.Point(16, 62);
             this.Users.Name = "Users";
             this.Users.Size = new System.Drawing.Size(164, 23);
             this.Users.TabIndex = 9;
             this.Users.Text = "Users";
-            this.Users.UseVisualStyleBackColor = true;
+            this.Users.UseVisualStyleBackColor = false;
             this.Users.Click += new System.EventHandler(this.Users_Click);
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.Color.BurlyWood;
             this.button8.Location = new System.Drawing.Point(16, 356);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(164, 23);
             this.button8.TabIndex = 7;
             this.button8.Text = "Log Out";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
+            this.button7.BackColor = System.Drawing.Color.BurlyWood;
             this.button7.Location = new System.Drawing.Point(16, 283);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(164, 23);
             this.button7.TabIndex = 6;
             this.button7.Text = "Classes";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.BurlyWood;
             this.button6.Location = new System.Drawing.Point(16, 248);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(164, 23);
             this.button6.TabIndex = 5;
             this.button6.Text = "Programs";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.BurlyWood;
             this.button5.Location = new System.Drawing.Point(16, 211);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(164, 23);
             this.button5.TabIndex = 4;
             this.button5.Text = "Departments";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.BurlyWood;
             this.button4.Location = new System.Drawing.Point(16, 173);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(164, 23);
             this.button4.TabIndex = 3;
             this.button4.Text = "Courses";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.BurlyWood;
             this.button3.Location = new System.Drawing.Point(16, 137);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 23);
             this.button3.TabIndex = 2;
             this.button3.Text = "Professors";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.BurlyWood;
             this.button2.Location = new System.Drawing.Point(16, 100);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(164, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "Students";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.BurlyWood;
             this.button1.Location = new System.Drawing.Point(16, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "Dashboard";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.BurlyWood;
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(200, 28);
@@ -209,7 +220,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(457, 6);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(482, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 13);
             this.label2.TabIndex = 0;
@@ -227,19 +239,30 @@
             this.panel4.Size = new System.Drawing.Size(570, 312);
             this.panel4.TabIndex = 8;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Snow;
+            this.label4.Location = new System.Drawing.Point(200, 249);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 16);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Program Filter:";
+            // 
             // dataGridViewCourses
             // 
             this.dataGridViewCourses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCourses.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCourses.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourses.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewCourses.Location = new System.Drawing.Point(17, 38);
             this.dataGridViewCourses.MultiSelect = false;
             this.dataGridViewCourses.Name = "dataGridViewCourses";
@@ -248,14 +271,22 @@
             this.dataGridViewCourses.TabIndex = 10;
             this.dataGridViewCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProfessors_CellContentClick);
             // 
+            // comboBoxPrograms
+            // 
+            this.comboBoxPrograms.FormattingEnabled = true;
+            this.comboBoxPrograms.Location = new System.Drawing.Point(201, 274);
+            this.comboBoxPrograms.Name = "comboBoxPrograms";
+            this.comboBoxPrograms.Size = new System.Drawing.Size(181, 21);
+            this.comboBoxPrograms.TabIndex = 15;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(13, 16);
+            this.label3.Location = new System.Drawing.Point(13, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 19);
+            this.label3.Size = new System.Drawing.Size(169, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "COURSE DETAILS";
             // 
@@ -270,25 +301,6 @@
             this.btnLoadCoursesPerProgram.Text = "Load Courses Per Program";
             this.btnLoadCoursesPerProgram.UseVisualStyleBackColor = false;
             this.btnLoadCoursesPerProgram.Click += new System.EventHandler(this.btnLoadCoursesPerProgram_Click);
-            // 
-            // comboBoxPrograms
-            // 
-            this.comboBoxPrograms.FormattingEnabled = true;
-            this.comboBoxPrograms.Location = new System.Drawing.Point(201, 274);
-            this.comboBoxPrograms.Name = "comboBoxPrograms";
-            this.comboBoxPrograms.Size = new System.Drawing.Size(181, 21);
-            this.comboBoxPrograms.TabIndex = 15;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Snow;
-            this.label4.Location = new System.Drawing.Point(200, 249);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 17);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Program Filter:";
             // 
             // Courses
             // 

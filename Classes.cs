@@ -17,41 +17,81 @@ namespace University_Information_System
         {
             InitializeComponent();
             LoadClassData();
+            LoadComboBoxes();
         }
 
         private void LoadClassData()
         {
             string query = @"
-        SELECT 
-            c.class_id,
-            co.course_name,
-            p.fname,
-            p.lname,
-            c.schedule
-        FROM 
-            classes c
-        INNER JOIN 
-            courses co ON c.course_id = co.course_id
-        LEFT JOIN 
-            professors p ON c.professor_id = p.professor_id";
-
-            DataTable dt = new DataTable();
+                SELECT 
+                    c.class_id,
+                    co.course_name,
+                    CONCAT(p.fname, ' ', p.lname) AS professor_name,
+                    c.schedule
+                FROM 
+                    classes c
+                INNER JOIN 
+                    courses co ON c.course_id = co.course_id
+                LEFT JOIN 
+                    professors p ON c.professor_id = p.professor_id";
 
             try
             {
-                DBHelper.conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, DBHelper.conn);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                adapter.Fill(dt);
-                dataGridViewClasses.DataSource = dt;
+                EnsureConnectionOpen();
+                using (MySqlCommand cmd = new MySqlCommand(query, DBHelper.conn))
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridViewClasses.DataSource = dt;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to load class data: " + ex.Message);
+                MessageBox.Show("Failed to load class data:\n" + ex.Message);
             }
             finally
             {
                 DBHelper.conn.Close();
+            }
+        }
+
+        private void LoadComboBoxes()
+        {
+            LoadComboBox(comboBoxCourse, "SELECT course_id, course_name FROM courses", "course_name", "course_id");
+            LoadComboBox(comboBoxProfessor, "SELECT professor_id, CONCAT(fname, ' ', lname) AS full_name FROM professors", "full_name", "professor_id");
+        }
+
+        private void LoadComboBox(ComboBox comboBox, string query, string displayMember, string valueMember)
+        {
+            try
+            {
+                EnsureConnectionOpen();
+                using (MySqlCommand cmd = new MySqlCommand(query, DBHelper.conn))
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    comboBox.DataSource = dt;
+                    comboBox.DisplayMember = displayMember;
+                    comboBox.ValueMember = valueMember;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load data: " + ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+        }
+
+        private void EnsureConnectionOpen()
+        {
+            if (DBHelper.conn.State != ConnectionState.Open)
+            {
+                DBHelper.conn.Open();
             }
         }
 
@@ -119,9 +159,17 @@ namespace University_Information_System
             this.Hide(); // Hides the login form
         }
 
+        private int selectedClassId = -1;
         private void dataGridViewClasses_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridViewClasses.Rows[e.RowIndex];
+                selectedClassId = Convert.ToInt32(row.Cells["class_id"].Value);
+                comboBoxCourse.Text = row.Cells["course_name"].Value.ToString();
+                comboBoxProfessor.Text = row.Cells["professor_name"].Value.ToString();
+                textBoxSchedule.Text = row.Cells["schedule"].Value.ToString();
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -129,6 +177,142 @@ namespace University_Information_System
             Enrollments enrollForm = new Enrollments();
             enrollForm.Show(); // This shows the form without closing the current one
             this.Hide(); // Hides the login form
+        }
+
+        private void addProf_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EnsureConnectionOpen();
+                using (MySqlCommand cmd = new MySqlCommand("AddClass", DBHelper.conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_course_id", comboBoxCourse.SelectedValue);
+                    cmd.Parameters.AddWithValue("@p_professor_id", comboBoxProfessor.SelectedValue);
+                    cmd.Parameters.AddWithValue("@p_schedule", textBoxSchedule.Text);
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Class added successfully.");
+                LoadClassData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+        }
+
+        private void Update_Click(object sender, EventArgs e)
+        {
+            if (selectedClassId == -1)
+            {
+                MessageBox.Show("Please select a class to update.");
+                return;
+            }
+
+            try
+            {
+                EnsureConnectionOpen();
+                using (MySqlCommand cmd = new MySqlCommand("UpdateClass", DBHelper.conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_class_id", selectedClassId);
+                    cmd.Parameters.AddWithValue("@p_course_id", comboBoxCourse.SelectedValue);
+                    cmd.Parameters.AddWithValue("@p_professor_id", comboBoxProfessor.SelectedValue);
+                    cmd.Parameters.AddWithValue("@p_schedule", textBoxSchedule.Text);
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Class updated successfully.");
+                LoadClassData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            if (selectedClassId == -1)
+            {
+                MessageBox.Show("Please select a class to delete.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this class?", "Confirm Delete", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    EnsureConnectionOpen();
+                    using (MySqlCommand cmd = new MySqlCommand("DeleteClass", DBHelper.conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@p_class_id", selectedClassId);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Class deleted successfully.");
+                    LoadClassData();
+                    selectedClassId = -1;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    DBHelper.conn.Close();
+                }
+            }
+        }
+
+        private void btnLoadProfwithClass_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EnsureConnectionOpen();
+
+                using (MySqlCommand cmd = new MySqlCommand("GetProfessorsWithClasses", DBHelper.conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        dataGridViewClasses.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading professors with classes:\n" + ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

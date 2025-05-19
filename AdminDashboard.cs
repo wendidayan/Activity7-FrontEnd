@@ -93,15 +93,19 @@ namespace University_Information_System
 
                 using (var studentCmd = new MySqlCommand(studentQuery, DBHelper.conn))
                     labelTotalStudents.Text = studentCmd.ExecuteScalar().ToString();
+                    labelTotalStudents.ForeColor = Color.White;
 
                 using (var professorCmd = new MySqlCommand(professorQuery, DBHelper.conn))
                     labelTotalProfessors.Text = professorCmd.ExecuteScalar().ToString();
+                    labelTotalProfessors.ForeColor = Color.White;
 
                 using (var programCmd = new MySqlCommand(programQuery, DBHelper.conn))
                     labelTotalPrograms.Text = programCmd.ExecuteScalar().ToString();
+                    labelTotalPrograms.ForeColor = Color.White;
 
                 using (var deptCmd = new MySqlCommand(departmentQuery, DBHelper.conn))
                     labelTotalDepartments.Text = deptCmd.ExecuteScalar().ToString();
+                    labelTotalDepartments.ForeColor = Color.White;
             }
             catch (Exception ex)
             {
@@ -224,6 +228,11 @@ namespace University_Information_System
         }
 
         private void dataGridViewCourses_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
         }

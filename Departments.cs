@@ -13,6 +13,8 @@ namespace University_Information_System
 {
     public partial class Departments : Form
     {
+        private bool showingFilteredByProgram = false;
+
         public Departments()
         {
             InitializeComponent();
@@ -148,35 +150,50 @@ namespace University_Information_System
 
         private void btnShowProgramStat_Click(object sender, EventArgs e)
         {
-            if (comboBoxProgram.SelectedValue == DBNull.Value || comboBoxProgram.SelectedValue == null)
+            if (!showingFilteredByProgram)
             {
-                MessageBox.Show("Please select a specific program. The function doesn't support 'All'.");
-                return;
+                if (comboBoxProgram.SelectedValue == DBNull.Value || comboBoxProgram.SelectedValue == null)
+                {
+                    MessageBox.Show("Please select a specific program. The function doesn't support 'All'.");
+                    return;
+                }
+
+                int selectedProgramId = Convert.ToInt32(comboBoxProgram.SelectedValue);
+
+                try
+                {
+                    DBHelper.conn.Open();
+
+                    string query = "SELECT GetDepartmentByProgramForStoredProcedure(@program_id) AS department_name";
+                    MySqlCommand cmd = new MySqlCommand(query, DBHelper.conn);
+                    cmd.Parameters.AddWithValue("@program_id", selectedProgramId);
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dataGridViewDepartments.DataSource = dt;
+
+                    // Toggle state and button text
+                    showingFilteredByProgram = true;
+                    btnDeptByProg.Text = "Show Department Details";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error fetching department: " + ex.Message);
+                }
+                finally
+                {
+                    DBHelper.conn.Close();
+                }
             }
-
-            int selectedProgramId = Convert.ToInt32(comboBoxProgram.SelectedValue);
-
-            try
+            else
             {
-                DBHelper.conn.Open();
+                // Show all departments again
+                LoadDepartmentData();
 
-                string query = "SELECT GetDepartmentByProgramForStoredProcedure(@program_id) AS department_name";
-                MySqlCommand cmd = new MySqlCommand(query, DBHelper.conn);
-                cmd.Parameters.AddWithValue("@program_id", selectedProgramId);
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-
-                dataGridViewDepartments.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error fetching department: " + ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
+                showingFilteredByProgram = false;
+                btnDeptByProg.Text = "Load Departments Per Program";
             }
 
         }
